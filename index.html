@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Irene ❤️</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;600&display=swap");
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            height: 100vh;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            overflow: hidden; text-align: center; color: #333;
+        }
+
+        .start-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            z-index: 1000; cursor: pointer; transition: opacity 1s ease;
+        }
+
+        .start-overlay h2 {
+            font-family: "Fredoka One", cursive; color: #ff4b2b; font-size: 3em;
+            animation: pulseText 1.5s infinite;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
+        }
+
+        .bg-element {
+            position: absolute; z-index: 1; opacity: 0.6;
+            animation: slowFloat 8s infinite alternate ease-in-out; pointer-events: none;
+        }
+
+        @keyframes slowFloat {
+            0% { transform: translateY(0) rotate(-5deg); }
+            100% { transform: translateY(-30px) rotate(15deg); }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95); padding: 40px; border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15); max-width: 700px; width: 90%;
+            z-index: 10; transition: all 0.5s ease; position: relative;
+        }
+
+        h1 { font-family: "Fredoka One", cursive; color: #ff4b2b; margin-bottom: 20px; font-size: 2.5em; }
+
+        .images-container {
+            display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 25px; flex-wrap: wrap; position: relative;
+        }
+
+        .couple-photo {
+            width: 180px; height: 180px; object-fit: cover; border-radius: 50%;
+            border: 6px solid #fff; box-shadow: 0 8px 20px rgba(255, 75, 43, 0.3);
+            transition: transform 0.3s ease; z-index: 2;
+        }
+        .couple-photo:hover { transform: scale(1.05) rotate(-5deg); }
+
+        .mario-img {
+            height: 140px; width: auto; animation: floatMario 3s ease-in-out infinite alternate;
+            filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3));
+        }
+
+        .destello-img {
+            position: absolute; width: 80px; top: -30px; left: 10%;
+            animation: floatDestello 2s ease-in-out infinite alternate;
+            filter: drop-shadow(0 5px 15px rgba(255,215,0,0.8));
+            z-index: 3;
+        }
+
+        @keyframes floatMario {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-10px) rotate(3deg); }
+        }
+
+        @keyframes floatDestello {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-15px) scale(1.1); }
+        }
+
+        p { font-size: 1.25em; margin-bottom: 20px; line-height: 1.6; }
+
+        .cinema-icon { font-size: 1.5em; vertical-align: text-bottom; margin: 0 5px; animation: pop 2s infinite; display: inline-block; }
+
+        @keyframes pop { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+
+        .buttons { display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 10px; }
+
+        button {
+            font-family: "Fredoka One", cursive; border: none; border-radius: 50px;
+            padding: 15px 40px; font-size: 1.2em; cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        #btn-yes { background-color: #4CAF50; color: white; transition: transform 0.3s ease; }
+        #btn-yes:hover { background-color: #45a049; }
+        #btn-no { background-color: #f44336; color: white; position: relative; }
+        #btn-no:hover { background-color: #da190b; }
+
+        .hidden { display: none !important; }
+
+        .celebration-text {
+            font-family: "Fredoka One", cursive; font-size: 3em; color: #ff1493;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2); animation: bounce 1s infinite alternate;
+        }
+
+        @keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-20px); } }
+
+        .heart {
+            position: absolute; font-size: 2.5rem; color: #ff1493;
+            animation: float 4s ease-in infinite; opacity: 0; z-index: 100;
+        }
+
+        @keyframes float { 0% { transform: translateY(110vh) scale(0); opacity: 1; } 100% { transform: translateY(-10vh) scale(1.5) rotate(360deg); opacity: 0; } }
+
+        .mario-theme {
+            font-size: 1.4em; color: #e52521; font-weight: bold; font-family: "Fredoka One", cursive;
+            text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff, 1px -1px 0px #fff, -1px 1px 0px #fff;
+            letter-spacing: 1px; display: inline-block; animation: pulseText 2s infinite;
+        }
+
+        @keyframes pulseText { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+    </style>
+</head>
+<body>
+
+    <!-- Usando el audio local que dejaste -->
+    <audio id="bgMusic" loop>
+        <source src="1-01 - Overture.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="successSound">
+        <source src="success.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="startOverlay" class="start-overlay">
+        <h2>💌 Tienes un mensaje para ti...</h2>
+        <p style="font-size: 1.5em; color: #333; margin-top: 10px;">(Haz clic aquí para abrirlo)</p>
+    </div>
+
+    <!-- Fondo -->
+    <img src="destello.png" class="bg-element" style="bottom: 15%; right: 10%; width: 70px; filter: drop-shadow(0 0 10px yellow);">
+
+    <div class="container hidden" id="question-container">
+        <h1>¡Hola Irene! ❤️</h1>
+        
+        <div class="images-container">
+            <!-- Destello flotando encima -->
+            <img src="destello.png" alt="Destello" class="destello-img">
+
+            <!-- Super Mario a la izquierda -->
+            <img src="Super-mario-odyssey_hr67.webp" alt="Mario" class="mario-img" style="height: 150px; margin-right: 5px;">
+
+            <!-- Foto de la pareja en el centro -->
+            <img src="foto_pareja.jpg" alt="Nosotros" class="couple-photo">
+            
+            <!-- Rosalina a la derecha -->
+            <img src="Rosalina-MPTop100-Transparent.webp" alt="Rosalina" class="mario-img" style="height: 160px; margin-left: 5px; animation-delay: 1s;">
+        </div>
+
+        <p>Soy Juan, y quería preguntarte algo muy especial...</p>
+        <p>
+            <strong>¿Me darías el placer de ir conmigo al cine</strong> <span class="cinema-icon">🍿🎬</span> <br>
+            a ver la nueva película de <br>
+            <span class="mario-theme">Super Mario Galaxy</span>🌟?
+        </p>
+        
+        <div class="buttons">
+            <button id="btn-yes">¡SÍ, CLARO!</button>
+            <button id="btn-no">No</button>
+        </div>
+    </div>
+
+    <div class="container hidden" id="celebration-container">
+        <h1 class="celebration-text">¡SIII! 🎉❤️🍿</h1>
+        <div class="images-container">
+            <img src="Super-mario-odyssey_hr67.webp" alt="Celebración Mario" class="mario-img" style="height: 180px;">
+            <img src="Rosalina-MPTop100-Transparent.webp" alt="Celebración Rosalina" class="mario-img" style="height: 180px; animation-delay: 0.5s;">
+        </div>
+        <p>¡Sabía que dirías que sí! Nos vemos en el cine para disfrutar de la peli 🎟️🍄.</p>
+        <p>Te quiero muchísimo 😘</p>
+    </div>
+
+    <script>
+        const btnYes = document.getElementById("btn-yes");
+        const btnNo = document.getElementById("btn-no");
+        const overlay = document.getElementById("startOverlay");
+        const questionContainer = document.getElementById("question-container");
+        const celebrationContainer = document.getElementById("celebration-container");
+        const bgMusic = document.getElementById("bgMusic");
+        const successSound = document.getElementById("successSound");
+        
+        let yesScale = 1;
+
+        overlay.addEventListener("click", () => {
+            overlay.style.opacity = "0";
+            setTimeout(() => {
+                overlay.classList.add("hidden");
+                questionContainer.classList.remove("hidden");
+            }, 500);
+            
+            bgMusic.volume = 0.5;
+            const playPromise = bgMusic.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(e => {
+                    console.log("Audio autoplay blocked by browser", e);
+                });
+            }
+        });
+
+        btnNo.addEventListener("click", () => {
+            yesScale += 0.15; 
+            btnYes.style.transform = `scale(${yesScale})`;
+            
+            const padding = 20;
+            const btnWidth = btnNo.clientWidth;
+            const btnHeight = btnNo.clientHeight;
+            
+            const maxX = window.innerWidth - btnWidth - padding * 2;
+            const maxY = window.innerHeight - btnHeight - padding * 2;
+            
+            btnNo.style.position = "fixed";
+            btnNo.style.left = Math.max(padding, Math.random() * maxX) + "px";
+            btnNo.style.top = Math.max(padding, Math.random() * maxY) + "px";
+        });
+
+        btnYes.addEventListener("click", () => {
+            questionContainer.classList.add("hidden");
+            celebrationContainer.classList.remove("hidden");
+            
+            bgMusic.pause();
+            successSound.volume = 0.8;
+            const playPromise = successSound.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(e => console.log("Audio play blocked", e));
+            }
+            
+            createHearts();
+            document.querySelectorAll(".bg-element").forEach(el => el.style.opacity = "0.1");
+        });
+
+        function createHearts() {
+            for(let i=0; i<30; i++) {
+                setTimeout(spawnElement, i * 150);
+            }
+            setInterval(spawnElement, 400);
+        }
+
+        function spawnElement() {
+            const el = document.createElement("div");
+            el.classList.add("heart");
+            el.innerHTML = "❤️";
+            el.style.left = Math.random() * 100 + "vw";
+            
+            const rand = Math.random();
+            if(rand > 0.9) {
+                el.innerHTML = "🍄";
+            } else if(rand > 0.6) {
+                el.innerHTML = "⭐";
+                el.style.color = "#FFD700";
+                el.style.textShadow = "0 0 5px #fff";
+            } else if(rand > 0.5) {
+                el.innerHTML = "🎟️"; 
+            }
+            
+            el.style.animationDuration = Math.random() * 2 + 3 + "s";
+            document.body.appendChild(el);
+            setTimeout(() => el.remove(), 6000);
+        }
+    </script>
+</body>
+</html>
