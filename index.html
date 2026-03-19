@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Para Irene ❤️</title>
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;600&display=swap");
@@ -12,7 +12,7 @@
         body {
             font-family: "Poppins", sans-serif;
             background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
-            height: 100vh;
+            min-height: 100vh;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             overflow: hidden; text-align: center; color: #333;
         }
@@ -22,6 +22,7 @@
             background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             z-index: 1000; cursor: pointer; transition: opacity 1s ease;
+            padding: 20px;
         }
 
         .start-overlay h2 {
@@ -44,6 +45,7 @@
             background: rgba(255, 255, 255, 0.95); padding: 40px; border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15); max-width: 700px; width: 90%;
             z-index: 10; transition: all 0.5s ease; position: relative;
+            max-height: 95vh; overflow-y: auto; overflow-x: hidden;
         }
 
         h1 { font-family: "Fredoka One", cursive; color: #ff4b2b; margin-bottom: 20px; font-size: 2.5em; }
@@ -60,7 +62,7 @@
         .couple-photo:hover { transform: scale(1.05) rotate(-5deg); }
 
         .mario-img {
-            height: 140px; width: auto; animation: floatMario 3s ease-in-out infinite alternate;
+            animation: floatMario 3s ease-in-out infinite alternate;
             filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3));
         }
 
@@ -93,12 +95,13 @@
             font-family: "Fredoka One", cursive; border: none; border-radius: 50px;
             padding: 15px 40px; font-size: 1.2em; cursor: pointer;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            -webkit-tap-highlight-color: transparent;
         }
 
         #btn-yes { background-color: #4CAF50; color: white; transition: transform 0.3s ease; }
-        #btn-yes:hover { background-color: #45a049; }
+        #btn-yes:hover, #btn-yes:active { background-color: #45a049; }
         #btn-no { background-color: #f44336; color: white; position: relative; }
-        #btn-no:hover { background-color: #da190b; }
+        #btn-no:hover, #btn-no:active { background-color: #da190b; }
 
         .hidden { display: none !important; }
 
@@ -111,7 +114,7 @@
 
         .heart {
             position: absolute; font-size: 2.5rem; color: #ff1493;
-            animation: float 4s ease-in infinite; opacity: 0; z-index: 100;
+            animation: float 4s ease-in infinite; opacity: 0; z-index: 100; pointer-events: none;
         }
 
         @keyframes float { 0% { transform: translateY(110vh) scale(0); opacity: 1; } 100% { transform: translateY(-10vh) scale(1.5) rotate(360deg); opacity: 0; } }
@@ -123,6 +126,42 @@
         }
 
         @keyframes pulseText { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+
+        /* Estilos específicos para móviles y pantallas pequeñas */
+        @media (max-width: 600px) {
+            .container { padding: 25px 15px; width: 95%; }
+            h1 { font-size: 1.8em; margin-bottom: 15px; }
+            .start-overlay h2 { font-size: 2em; }
+            .start-overlay p { font-size: 1.2em !important; }
+            
+            p { font-size: 1.05em; margin-bottom: 15px; }
+            .mario-theme { font-size: 1.25em; }
+
+            .images-container { gap: 8px; margin-bottom: 15px; }
+            
+            .couple-photo { width: 120px; height: 120px; border-width: 4px; }
+            
+            #mario-left { height: 90px !important; margin-right: 0 !important; }
+            #rosalina-right { height: 100px !important; margin-left: 0 !important; }
+            
+            .destello-img { width: 50px; top: -15px; left: 5%; }
+            
+            button { padding: 12px 30px; font-size: 1.1em; }
+            
+            .celebration-text { font-size: 2.2em; }
+            #celebration-mario { height: 120px !important; }
+            #celebration-rosalina { height: 120px !important; }
+        }
+
+        @media (max-width: 400px) {
+            /* Ajustes extra para móviles muy pequeños (ej: iPhone SE) */
+            h1 { font-size: 1.5em; }
+            .couple-photo { width: 100px; height: 100px; }
+            #mario-left { height: 75px !important; }
+            #rosalina-right { height: 85px !important; }
+            p { font-size: 0.95em; }
+            button { padding: 10px 25px; font-size: 1em; }
+        }
     </style>
 </head>
 <body>
@@ -136,12 +175,12 @@
     </audio>
 
     <div id="startOverlay" class="start-overlay">
-        <h2>💌 Tienes un mensaje para ti...</h2>
-        <p style="font-size: 1.5em; color: #333; margin-top: 10px;">(Haz clic aquí para abrirlo)</p>
+        <h2>💌 Tienes un mensaje...</h2>
+        <p style="font-size: 1.5em; color: #333; margin-top: 10px; text-align: center;">(Toca aquí para abrirlo)</p>
     </div>
 
     <!-- Fondo -->
-    <img src="destello.png" class="bg-element" style="bottom: 15%; right: 10%; width: 70px; filter: drop-shadow(0 0 10px yellow);">
+    <img src="destello.png" class="bg-element" style="bottom: 15%; right: 10%; width: 50px; filter: drop-shadow(0 0 10px yellow);">
 
     <div class="container hidden" id="question-container">
         <h1>¡Hola Irene! ❤️</h1>
@@ -151,13 +190,13 @@
             <img src="destello.png" alt="Destello" class="destello-img">
 
             <!-- Super Mario a la izquierda -->
-            <img src="Super-mario-odyssey_hr67.webp" alt="Mario" class="mario-img" style="height: 150px; margin-right: 5px;">
+            <img src="Super-mario-odyssey_hr67.webp" alt="Mario" id="mario-left" class="mario-img" style="height: 150px; margin-right: 5px;">
 
             <!-- Foto de la pareja en el centro -->
             <img src="foto_pareja.jpg" alt="Nosotros" class="couple-photo">
             
             <!-- Rosalina a la derecha -->
-            <img src="Rosalina-MPTop100-Transparent.webp" alt="Rosalina" class="mario-img" style="height: 160px; margin-left: 5px; animation-delay: 1s;">
+            <img src="Rosalina-MPTop100-Transparent.webp" alt="Rosalina" id="rosalina-right" class="mario-img" style="height: 160px; margin-left: 5px; animation-delay: 1s;">
         </div>
 
         <p>Soy Juan, y quería preguntarte algo muy especial...</p>
@@ -176,8 +215,8 @@
     <div class="container hidden" id="celebration-container">
         <h1 class="celebration-text">¡SIII! 🎉❤️🍿</h1>
         <div class="images-container">
-            <img src="Super-mario-odyssey_hr67.webp" alt="Celebración Mario" class="mario-img" style="height: 180px;">
-            <img src="Rosalina-MPTop100-Transparent.webp" alt="Celebración Rosalina" class="mario-img" style="height: 180px; animation-delay: 0.5s;">
+            <img src="Super-mario-odyssey_hr67.webp" alt="Celebración Mario" id="celebration-mario" class="mario-img" style="height: 180px;">
+            <img src="Rosalina-MPTop100-Transparent.webp" alt="Celebración Rosalina" id="celebration-rosalina" class="mario-img" style="height: 180px; animation-delay: 0.5s;">
         </div>
         <p>¡Sabía que dirías que sí! Nos vemos en el cine para disfrutar de la peli 🎟️🍄.</p>
         <p>Te quiero muchísimo 😘</p>
@@ -192,6 +231,13 @@
         const bgMusic = document.getElementById("bgMusic");
         const successSound = document.getElementById("successSound");
         
+        // Prevent generic mobile scrolling to feel more like an app
+        document.body.addEventListener('touchmove', function(e) {
+            if(!e.target.closest('.container')) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
         let yesScale = 1;
 
         overlay.addEventListener("click", () => {
@@ -210,7 +256,10 @@
             }
         });
 
-        btnNo.addEventListener("click", () => {
+        // Use touch events as well for mobile responsiveness on the 'No' button
+        const moveNoButton = (e) => {
+            if(e) e.preventDefault();
+            
             yesScale += 0.15; 
             btnYes.style.transform = `scale(${yesScale})`;
             
@@ -224,9 +273,13 @@
             btnNo.style.position = "fixed";
             btnNo.style.left = Math.max(padding, Math.random() * maxX) + "px";
             btnNo.style.top = Math.max(padding, Math.random() * maxY) + "px";
-        });
+        };
 
-        btnYes.addEventListener("click", () => {
+        btnNo.addEventListener("click", moveNoButton);
+        btnNo.addEventListener("touchstart", moveNoButton, {passive: false});
+
+        const handleYesClick = (e) => {
+            if(e) e.preventDefault();
             questionContainer.classList.add("hidden");
             celebrationContainer.classList.remove("hidden");
             
@@ -239,13 +292,21 @@
             
             createHearts();
             document.querySelectorAll(".bg-element").forEach(el => el.style.opacity = "0.1");
-        });
+        };
+
+        btnYes.addEventListener("click", handleYesClick);
+        btnYes.addEventListener("touchstart", handleYesClick, {passive: false});
 
         function createHearts() {
-            for(let i=0; i<30; i++) {
-                setTimeout(spawnElement, i * 150);
+            // Un poco menos de partículas en móvil para no saturar el rendimiento
+            const isMobile = window.innerWidth <= 600;
+            const particleCount = isMobile ? 15 : 30;
+            const intervalTime = isMobile ? 600 : 400;
+
+            for(let i=0; i<particleCount; i++) {
+                setTimeout(spawnElement, i * (isMobile ? 250 : 150));
             }
-            setInterval(spawnElement, 400);
+            setInterval(spawnElement, intervalTime);
         }
 
         function spawnElement() {
